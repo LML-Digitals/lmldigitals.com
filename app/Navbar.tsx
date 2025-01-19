@@ -1,24 +1,26 @@
-'use client';
-import CollapsibleBanner from '@/components/Banner';
-import { CoolMode } from '@/components/magicui/cool-mode';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import logo from '@/public/logo.png';
-import menu from '@/public/menu.png';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import CollapsibleBanner from "@/components/Banner";
+import { CoolMode } from "@/components/magicui/cool-mode";
+import PrimaryButton from "@/components/shared/PrimaryButton";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import logo from "@/public/logo.png";
+import menu from "@/public/menu.png";
+import Image from "next/image";
+import Link from "next/link";
 
 function Navbar() {
   const NavLink = [
-    { id: 1, title: 'Our Services', link: '/services' },
-    { id: 2, title: 'About Us', link: '/about' },
+    { id: 1, title: "Our Services", link: "/services" },
+    { id: 2, title: "About Us", link: "/about" },
+    { id: 3, title: "Help", link: "/faq" },
     // { id: 3, title: 'Blog', link: '/ourservices' },
   ];
   return (
     <>
       <CollapsibleBanner type={true} />
       <div className="hidden lg:flex lg:items-center lg:justify-between  lg:px-8 xl:px-10 2xl:xl:px-40 mt-10">
-        <Link href={'/'}>
+        <Link href={"/"}>
           <Image
             src={logo}
             width={70}
@@ -28,8 +30,7 @@ function Navbar() {
             className="hover:scale-110 hover:delay-100 hover:duration-150 transition-all"
           />
         </Link>
-
-        <ul className="hidden lg:flex lg:items-center lg:justify-evenly  lg:w-1/2  xl:w-1/3 ">
+        <ul className="hidden lg:flex lg:items-center lg:justify-around gap-5  lg:w-1/2  xl:w-1/3 ">
           {NavLink.map((nav) => (
             <Link href={nav.link} key={nav.id}>
               <li className="underline-animation hover:underline-offset-1 hover:border-b hover:border-red-500 font-bold">
@@ -37,14 +38,13 @@ function Navbar() {
               </li>
             </Link>
           ))}
-          <CoolMode>
-            <Link href={'/contact'}>
-              <Button className="h-11 w-36 transition-all ">
-                Get in Touch
-              </Button>
-            </Link>
-          </CoolMode>
         </ul>
+        {/* <CoolMode>
+          <Link href={"/contact"}>
+            <Button className="h-11 w-36 transition-all ">Get in Touch</Button>
+          </Link>
+        </CoolMode> */}
+        <PrimaryButton text="Get in Touch" to="/contact" />{" "}
       </div>
       <MediumSizeNavBar NavLinks={NavLink} />
       <MobileSizeNavBar NavLinks={NavLink} />
@@ -67,7 +67,7 @@ function MobileSizeNavBar({ NavLinks }: MobileSizeProps) {
     <>
       {/* <CollapsibleBanner type={true} /> */}
       <div className="flex items-center justify-between px-4   sm:hidden lg:hidden">
-        <Link href={'/'}>
+        <Link href={"/"}>
           <Image
             src={logo}
             width={70}
@@ -87,7 +87,7 @@ function MobileSizeNavBar({ NavLinks }: MobileSizeProps) {
               className="menu-icon-animation"
             />
           </SheetTrigger>
-          <SheetContent side={'top'} className=" space-y-2">
+          <SheetContent side={"top"} className=" space-y-2">
             <div className="flex flex-col justify-between gap-10">
               <Image
                 src={logo}
@@ -123,7 +123,7 @@ function MediumSizeNavBar({ NavLinks }: MobileSizeProps) {
     <>
       {/* <CollapsibleBanner type={true} /> */}
       <div className="hidden sm:flex sm:items-center sm:justify-between  sm:px-8   mt-10 lg:hidden">
-        <Link href={'/'}>
+        <Link href={"/"}>
           <Image
             src={logo}
             width={50}
@@ -143,7 +143,7 @@ function MediumSizeNavBar({ NavLinks }: MobileSizeProps) {
               className="menu-icon-animation"
             />
           </SheetTrigger>
-          <SheetContent side={'top'} className=" space-y-2">
+          <SheetContent side={"top"} className=" space-y-2">
             <div className="flex flex-col justify-between gap-10">
               <Image
                 src={logo}
