@@ -2,6 +2,7 @@ import React from "react";
 import SocialLinks from "./SocialLinks";
 import CopyRight from "./CopyRight";
 import Link from "next/link";
+import { LoginButton } from "@/components/common/auth/auth";
 
 const Footer = () => {
   return (
@@ -50,6 +51,9 @@ const Footer = () => {
                 </li>
                 <li className="hover:text-black hover:scale-110 transition-all duration-300">
                   <Link href="#">Privacy Policy</Link>
+                </li>
+                <li className="hover:text-black hover:scale-110 transition-all duration-300">
+                  <LoginButton />
                 </li>
               </ul>
             </div>

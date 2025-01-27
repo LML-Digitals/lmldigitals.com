@@ -52,10 +52,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <main>
-          <Navbar />
           {children}
-          <ChatbotIcon />
-          <Footer />
         </main>
       </body>
       <Script

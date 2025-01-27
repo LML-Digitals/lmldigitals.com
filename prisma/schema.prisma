@@ -1,0 +1,36 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Staff {
+  id       Int      @id @default(autoincrement())
+  name     String
+  number   String
+  email    String   @unique
+  location String
+  role     String   @default("admin")
+  password String   @db.VarChar(255)
+  jobTitle String   @default("technician")
+}
+
+model Customer {
+  id              Int        @id @default(autoincrement())
+  name            String
+  number          String
+  email           String     @unique
+  address         String?
+  city            String?
+  state           String?
+  zip             String?
+  location        String
+  referralCode    String     @unique
+  pendingDiscount Int        @default(0)
+  referredBy      Int?
+}

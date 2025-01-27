@@ -10,6 +10,9 @@ import Testimonial from "@/components/home/Testimonial";
 import About from "@/components/home/About";
 import DividerSection from "@/components/home/DividerSection";
 import Script from "next/script";
+import Navbar from "./Navbar";
+import Footer from "@/components/shared/footer/Footer";
+import ChatbotIcon from "@/components/shared/ChatBotIcon";
 
 export default function Home() {
   return (
@@ -31,6 +34,7 @@ export default function Home() {
         }}
       />
 
+      <Navbar />
       <Hero />
       <BrandsTrustUs />
       <Service />
@@ -41,6 +45,8 @@ export default function Home() {
       {/* <ContentFour /> */}
       <ContentFive />
       <ContentSix />
+      <ChatbotIcon />
+      <Footer />
     </div>
   );
 }
