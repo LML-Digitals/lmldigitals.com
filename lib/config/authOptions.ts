@@ -30,14 +30,14 @@ export const authOptions: NextAuthOptions = {
             throw new Error("No user found with the provided email");
           }
 
-          // const passwordMatch = await bcryptjs.compare(
-          //   credentials.password,
-          //   staff.password
-          // );
+          const passwordMatch = await bcryptjs.compare(
+            credentials.password,
+            staff.password
+          );
 
-          // if (!passwordMatch) {
-          //   throw new Error("Incorrect password");
-          // }
+          if (!passwordMatch) {
+            throw new Error("Incorrect password");
+          }
 
           return {
             id: staff.id.toString(),

@@ -158,7 +158,7 @@ const AddCustomer = () => {
           <UserPlus className="transform cursor-pointer text-emerald-500 transition-transform hover:scale-110" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] h-[700px] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Add Customer</DialogTitle>
         </DialogHeader>
